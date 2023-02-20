@@ -51,3 +51,18 @@
         }
         * sukuriame .eslintignore failą ir užignoruojame visus neprograminius failus
         * sukuriame .vscode/settings.json failą ir nuorodme savo eslint plugin'ui formatuoti po išsaugijimo
+    
+  * Susikonfiguruokite API router'į
+    * Panaudokite server'iui express bibliotekoje integruotą boodyParser'į priimti JSON tipo duomenims
+    * sukurkite apiRouterį, naudodami express.Router funkciją
+    * Panaudokite jį server'iui (server.use(....))
+    * Aprašykite užklausą gauti duomenis
+    * Aprašykite užklausą įrašyti duomenims
+
+
+Namų darbai:
+  * susikurti paskyrą: https://www.clever-cloud.com/
+  * Patvirtinti pašte paskyrą
+  * Susikurti MySQL addOn'a
+  * https://www.youtube.com/watch?v=RTMCD-oIpz8&t=24s&ab_channel=OpenAcademy
+  * Prisijungti prie PHPMyAdmin
