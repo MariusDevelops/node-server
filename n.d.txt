@@ -1,0 +1,8 @@
+* Pamokos darbo atlikitmas pažingsniui[0.1]
+  * Sukurkite tuščią IR NAUJĄ repozitoriją, kurioje saugosite savo serverio aplikaciją
+  * Sukurkite savo serverį, MultiPage puslapiui
+    * Kuris viešintų statinius failus
+      * 2 html failus
+      * CSS failą
+      * nuotrauką
+    * Puslapiai turi būti pasiekiami tarpusavyje nuorodomis
