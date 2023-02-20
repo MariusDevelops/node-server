@@ -1,6 +1,9 @@
-import * as dotenv from 'dotenv'
-dotenv.config();
+/* eslint-disable no-console */
+import * as dotenv from 'dotenv';
 import express from 'express';
+import morgan from 'morgan';
+
+dotenv.config();
 
 const { SERVER_PORT, SERVER_DOMAIN } = process.env;
 
@@ -9,8 +12,10 @@ if (SERVER_PORT === undefined || SERVER_DOMAIN === undefined) {
 }
 
 const server = express();
+
+server.use(morgan('tiny'));
 server.use(express.static('public'));
 
 server.listen(SERVER_PORT, () => {
-  console.log(`server is running on: http://${SERVER_DOMAIN}:${SERVER_PORT}`)
-})
+  console.log(`server is running on: http://${SERVER_DOMAIN}:${SERVER_PORT}`);
+});

@@ -27,3 +27,27 @@
       * patikrinkite ar yra padeklaruotos visos konstantos, jei ne - nutraukite programą
       * panaudokite konstantas ištraukdami jas iš "process.env" objekto
     * aprašykite "readme.md" failą su detaliomis instrukcijomis - kaip pasileisti projektą
+
+  * Panaudokite "morgan" biblioteką, kad matyti gaunamas užklausas
+  * įsirašome eslint:
+    * npm init @eslint/config, nustatymai
+      * griežtas tikrinimas
+      * import/export
+      * nenaudojos jokio framework
+      * naudos TS
+      * veiks node aplinkoj
+      * naudosime AirBNb standartą
+      * konfiguracija JavaScript faile
+    * papildomai įsirašome aribnb typeScript standartus
+      * įsirašome npm i -D eslint-config-airbnb-typescript
+      * sukonfiguruojame .eslint.rc failą:
+        * nurodome bibliotekos naudojimą: extends:[
+          'airbnb-base',
+          'airbnb-typescript/base',
+        ],
+        * Nurodome, kokį tsconfig.failą naudosime: parserOptions: {
+          ...,
+          project: './tsconfig.json'
+        }
+        * sukuriame .eslintignore failą ir užignoruojame visus neprograminius failus
+        * sukuriame .vscode/settings.json failą ir nuorodme savo eslint plugin'ui formatuoti po išsaugijimo
