@@ -6,3 +6,24 @@
       * CSS failą
       * nuotrauką
     * Puslapiai turi būti pasiekiami tarpusavyje nuorodomis
+
+  * Įgalinkite TypeScript savo serveriui
+    * npm i -D typescript - įrašome TS
+    * npx tsc --init - sukuriame tsconfig.json ir nurodome reikalingas taisykles
+    * npm i -D @types/express - įrašome tipus express bibliotekai
+    * npm i -D ts-node - rašome node'ui reikalingą biblioteką, kad vykdyti TS
+    * pakeičiame failą pradinė iš **.js į **.ts, suderinant su "start" komanda package.json
+
+  * Išsaugokite jautrius/konfiguruojamus duomenis atskirame faile
+    * parsisiųskite bibliotekas:
+      * npm i dotenv
+      * npm i -D @types/dotenv
+    * sukurkite failą ".env" PAGIRINDINĖJE direktorijoje
+    * Aprašykite konstantas taile ".env"
+    * Sukurkite pavyzdinį ".env.example" failą kuriame būtų konstantų pavadinimai be reikšmių
+    * panaudokite ".gitignore", kad nesidalinti (jautrių duomenų) failu '.env'
+    * server.ts faile:
+      * paleiskite dotenv bibliotekos konfiguravimo komandą
+      * patikrinkite ar yra padeklaruotos visos konstantos, jei ne - nutraukite programą
+      * panaudokite konstantas ištraukdami jas iš "process.env" objekto
+    * aprašykite "readme.md" failą su detaliomis instrukcijomis - kaip pasileisti projektą
