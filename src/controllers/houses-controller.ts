@@ -5,10 +5,6 @@ type House = {
   title: string,
 };
 
-type ResponseError = {
-  error: string
-};
-
 const houses: House[] = [
   { id: 1, title: 'House 1' },
   { id: 2, title: 'House 2' },

@@ -14,3 +14,7 @@
     * panaudokite routerį server.js faile
 
   * Aprašykite ResponseError tipą globaliai, aplanke: types/
+  * papildykite tsconfig.json failą nustatymu:
+      "ts-node": {
+        "files": true
+      }
