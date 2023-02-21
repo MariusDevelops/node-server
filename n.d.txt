@@ -1,68 +1,16 @@
 * Pamokos darbo atlikitmas pažingsniui[0.1]
-  * Sukurkite tuščią IR NAUJĄ repozitoriją, kurioje saugosite savo serverio aplikaciją
-  * Sukurkite savo serverį, MultiPage puslapiui
-    * Kuris viešintų statinius failus
-      * 2 html failus
-      * CSS failą
-      * nuotrauką
-    * Puslapiai turi būti pasiekiami tarpusavyje nuorodomis
+  * iškelkite konfiguracijos duomenis į config.ts failą
+  * sukurkite failą /controllers/houses-controller.ts
+    * Aprašykite ir eksportuokite funkcijas, kurios aptarnauja užklausas
+    * Apibūdinkite funkcijų tipus naudodami RequestHandler bnderinius tipus
+      1 - Parametrų tipas
+      2 - Grąžinimo tipas
+      3 - Body tipas
+      4 - Query parametrų tipas 
 
-  * Įgalinkite TypeScript savo serveriui
-    * npm i -D typescript - įrašome TS
-    * npx tsc --init - sukuriame tsconfig.json ir nurodome reikalingas taisykles
-    * npm i -D @types/express - įrašome tipus express bibliotekai
-    * npm i -D ts-node - rašome node'ui reikalingą biblioteką, kad vykdyti TS
-    * pakeičiame failą pradinė iš **.js į **.ts, suderinant su "start" komanda package.json
+  * sukurkite failą routers/houses-router.ts ir jame:
+    * Sukurkite expressRouterį
+    * aprašykite maršrutus, nukreipiant jų apdorojimą į  kontrolerio funkcijas
+    * panaudokite routerį server.js faile
 
-  * Išsaugokite jautrius/konfiguruojamus duomenis atskirame faile
-    * parsisiųskite bibliotekas:
-      * npm i dotenv
-      * npm i -D @types/dotenv
-    * sukurkite failą ".env" PAGIRINDINĖJE direktorijoje
-    * Aprašykite konstantas taile ".env"
-    * Sukurkite pavyzdinį ".env.example" failą kuriame būtų konstantų pavadinimai be reikšmių
-    * panaudokite ".gitignore", kad nesidalinti (jautrių duomenų) failu '.env'
-    * server.ts faile:
-      * paleiskite dotenv bibliotekos konfiguravimo komandą
-      * patikrinkite ar yra padeklaruotos visos konstantos, jei ne - nutraukite programą
-      * panaudokite konstantas ištraukdami jas iš "process.env" objekto
-    * aprašykite "readme.md" failą su detaliomis instrukcijomis - kaip pasileisti projektą
-
-  * Panaudokite "morgan" biblioteką, kad matyti gaunamas užklausas
-  * įsirašome eslint:
-    * npm init @eslint/config, nustatymai
-      * griežtas tikrinimas
-      * import/export
-      * nenaudojos jokio framework
-      * naudos TS
-      * veiks node aplinkoj
-      * naudosime AirBNb standartą
-      * konfiguracija JavaScript faile
-    * papildomai įsirašome aribnb typeScript standartus
-      * įsirašome npm i -D eslint-config-airbnb-typescript
-      * sukonfiguruojame .eslint.rc failą:
-        * nurodome bibliotekos naudojimą: extends:[
-          'airbnb-base',
-          'airbnb-typescript/base',
-        ],
-        * Nurodome, kokį tsconfig.failą naudosime: parserOptions: {
-          ...,
-          project: './tsconfig.json'
-        }
-        * sukuriame .eslintignore failą ir užignoruojame visus neprograminius failus
-        * sukuriame .vscode/settings.json failą ir nuorodme savo eslint plugin'ui formatuoti po išsaugijimo
-    
-  * Susikonfiguruokite API router'į
-    * Panaudokite server'iui express bibliotekoje integruotą boodyParser'į priimti JSON tipo duomenims
-    * sukurkite apiRouterį, naudodami express.Router funkciją
-    * Panaudokite jį server'iui (server.use(....))
-    * Aprašykite užklausą gauti duomenis
-    * Aprašykite užklausą įrašyti duomenims
-
-
-Namų darbai:
-  * susikurti paskyrą: https://www.clever-cloud.com/
-  * Patvirtinti pašte paskyrą
-  * Susikurti MySQL addOn'a
-  * https://www.youtube.com/watch?v=RTMCD-oIpz8&t=24s&ab_channel=OpenAcademy
-  * Prisijungti prie PHPMyAdmin
+  * Aprašykite ResponseError tipą globaliai, aplanke: types/
