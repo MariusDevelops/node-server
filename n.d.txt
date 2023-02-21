@@ -18,3 +18,21 @@
       "ts-node": {
         "files": true
       }
+
+  * Sukurkite HouseData tipą, kurį tikėsitės gauti iš request Body
+  * Sukurkite PartialHouseData tipą, kuris atspindės jūsų gaunamus duomenis per Body
+  * Pasirašykite funkciją (TS predicate), kuri atlieka PartialHouseData konversiją į HouseData
+  * Atlikite body patikrinimą "createHouse"  kontrolerio metodo metu
+  * išskaidykite controllerio kodą į:
+      * atskirus failus kiekvienam kontrolerio metodui
+      * tipus
+      * data - failas kuriame saugomi duomenys
+      * index - failas kuriame re-exportuojami visi kontrolerio metodai
+
+* Pažiūrėti ir pasidaryti pagal video
+  yup:
+    * https://www.youtube.com/watch?v=OLNQOftQLXA&ab_channel=TomDoesTech
+    * https://www.youtube.com/watch?v=dUZdvXrxj-U&ab_channel=Codenemy
+
+  joi:
+    * https://www.youtube.com/watch?v=_svzevhv4vg&ab_channel=OnelightWebDev
