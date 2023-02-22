@@ -1,38 +1,4 @@
 * Pamokos darbo atlikitmas pažingsniui[0.1]
-  * iškelkite konfiguracijos duomenis į config.ts failą
-  * sukurkite failą /controllers/houses-controller.ts
-    * Aprašykite ir eksportuokite funkcijas, kurios aptarnauja užklausas
-    * Apibūdinkite funkcijų tipus naudodami RequestHandler bnderinius tipus
-      1 - Parametrų tipas
-      2 - Grąžinimo tipas
-      3 - Body tipas
-      4 - Query parametrų tipas 
-
-  * sukurkite failą routers/houses-router.ts ir jame:
-    * Sukurkite expressRouterį
-    * aprašykite maršrutus, nukreipiant jų apdorojimą į  kontrolerio funkcijas
-    * panaudokite routerį server.js faile
-
-  * Aprašykite ResponseError tipą globaliai, aplanke: types/
-  * papildykite tsconfig.json failą nustatymu:
-      "ts-node": {
-        "files": true
-      }
-
-  * Sukurkite HouseData tipą, kurį tikėsitės gauti iš request Body
-  * Sukurkite PartialHouseData tipą, kuris atspindės jūsų gaunamus duomenis per Body
-  * Pasirašykite funkciją (TS predicate), kuri atlieka PartialHouseData konversiją į HouseData
-  * Atlikite body patikrinimą "createHouse"  kontrolerio metodo metu
-  * išskaidykite controllerio kodą į:
-      * atskirus failus kiekvienam kontrolerio metodui
-      * tipus
-      * data - failas kuriame saugomi duomenys
-      * index - failas kuriame re-exportuojami visi kontrolerio metodai
-
-* Pažiūrėti ir pasidaryti pagal video
-  yup:
-    * https://www.youtube.com/watch?v=OLNQOftQLXA&ab_channel=TomDoesTech
-    * https://www.youtube.com/watch?v=dUZdvXrxj-U&ab_channel=Codenemy
-
-  joi:
-    * https://www.youtube.com/watch?v=_svzevhv4vg&ab_channel=OnelightWebDev
+  * Sukurti savo įrašo validacijos schemą ir panaudoti ją tipo prielaidos funkcijoje
+  * Panaikinti tipo prielaidos funkciją ir vietoj jos naudoti try-catch bloką suformuojant klaaidos atsakymą
+  * aprašykite validacijos schemą ir tipus atskiruose failuose

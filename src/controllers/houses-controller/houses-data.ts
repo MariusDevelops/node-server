@@ -1,4 +1,4 @@
-import HouseModel from './house-model';
+import { HouseModel } from './types';
 
 const houses: HouseModel[] = [
   {

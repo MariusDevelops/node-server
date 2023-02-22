@@ -1,4 +1,4 @@
-type HouseModel = {
+export type HouseModel = {
   id: string,
   title: string,
   location: {
@@ -10,4 +10,4 @@ type HouseModel = {
   rating: number
 };
 
-export default HouseModel;
+export type HouseData = Omit<HouseModel, 'id'>;
