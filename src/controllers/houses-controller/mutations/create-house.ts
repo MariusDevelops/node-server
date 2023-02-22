@@ -1,9 +1,9 @@
 import { RequestHandler } from 'express';
 import { ValidationError } from 'yup';
 import createId from 'uniqid';
-import { HouseModel, HouseData } from './types';
-import houses from './houses-data';
-import houseDataValidationSchema from './house-data-validation-schema';
+import { HouseModel, HouseData } from '../types';
+import houses from '../houses-data';
+import houseDataValidationSchema from '../validation-schemas/house-data-validation-schema';
 
 export const createHouse: RequestHandler<
   {},

@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
-import { HouseModel } from './types';
-import houses from './houses-data';
+import { HouseModel } from '../types';
+import houses from '../houses-data';
 
 export const getHouses: RequestHandler<
   {},

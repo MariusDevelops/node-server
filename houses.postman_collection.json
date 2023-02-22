@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "0b96b1e8-012d-40aa-81af-4a915b212cc7",
+		"name": "houses",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1854907"
+	},
+	"item": [
+		{
+			"name": "many",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/houses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"houses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "single",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/houses/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"houses",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "single",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/api/houses/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"houses",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "single",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Domek na drzewie wśród zwierząt\",\r\n  \"location\": {\r\n    \"country\": \"Poland\",\r\n    \"city\": \"Wychodne\"\r\n  },\r\n  \"images\": [\r\n    \"https://a0.muscache.com/im/pictures/3a5a705d-af79-4ae3-8997-de37198b014b.jpg?im_w=1200\",\r\n    \"https://a0.muscache.com/im/pictures/de62f2d3-5901-46b6-8e51-ba39a0582122.jpg?im_w=1440\",\r\n    \"https://a0.muscache.com/im/pictures/8920865b-d2e0-4157-91e1-ba5081705d3f.jpg?im_w=1440\"\r\n  ],\r\n  \"price\": 19.55,\r\n  \"rating\": 4.7\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/houses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"houses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "single",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Pakeistas pavadinimas2\",\r\n  \"rating\": 4.9\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/houses/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"houses",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

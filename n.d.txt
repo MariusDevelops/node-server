@@ -2,3 +2,4 @@
   * Sukurti savo įrašo validacijos schemą ir panaudoti ją tipo prielaidos funkcijoje
   * Panaikinti tipo prielaidos funkciją ir vietoj jos naudoti try-catch bloką suformuojant klaaidos atsakymą
   * aprašykite validacijos schemą ir tipus atskiruose failuose
+  * sukurti atbaujinimo ir ištrynimo funkcionalumą
