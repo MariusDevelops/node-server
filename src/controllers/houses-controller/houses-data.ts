@@ -13,7 +13,7 @@ const houses: HouseModel[] = [
       'https://a0.muscache.com/im/pictures/de62f2d3-5901-46b6-8e51-ba39a0582122.jpg?im_w=1440',
       'https://a0.muscache.com/im/pictures/8920865b-d2e0-4157-91e1-ba5081705d3f.jpg?im_w=1440',
     ],
-    price: '32€',
+    price: 32,
     rating: 4.79,
   },
   {
@@ -29,7 +29,7 @@ const houses: HouseModel[] = [
       'https://a0.muscache.com/im/pictures/miso/Hosting-43105686/original/b87b8ba8-d3d8-4567-8aa0-ce2a8e8a0dea.jpeg?im_w=1440',
       'https://a0.muscache.com/im/pictures/8920865b-d2e0-4157-91e1-ba5081705d3f.jpg?im_w=1440',
     ],
-    price: '137€',
+    price: 137,
     rating: 4.97,
   },
   {
@@ -44,7 +44,7 @@ const houses: HouseModel[] = [
       'https://a0.muscache.com/im/pictures/fd94effa-da96-4b2d-97ee-39bab24ad470.jpg?im_w=1440',
       'https://a0.muscache.com/im/pictures/14cf87f4-cb04-49a1-b733-a43edfcff1c7.jpg?im_w=1440',
     ],
-    price: '66€',
+    price: 66,
     rating: 4.62,
   },
   {
@@ -59,7 +59,7 @@ const houses: HouseModel[] = [
       'https://a0.muscache.com/im/pictures/miso/Hosting-49434096/original/97836fa1-c200-4899-a9d8-a1d1b013f15c.jpeg?im_w=1440',
       'https://a0.muscache.com/im/pictures/miso/Hosting-49434096/original/551bca7c-e035-45a7-98fe-a09108083c93.jpeg?im_w=1440',
     ],
-    price: '92€',
+    price: 92,
     rating: 5,
   },
   {
@@ -74,7 +74,7 @@ const houses: HouseModel[] = [
       'https://a0.muscache.com/im/pictures/miso/Hosting-37926580/original/f323a639-bc6b-43fd-b479-668926601a68.jpeg?im_w=1440',
       'https://a0.muscache.com/im/pictures/miso/Hosting-37926580/original/62837d3d-cbe2-4036-97ee-18797dcef56b.jpeg?im_w=1440',
     ],
-    price: '94€',
+    price: 94,
     rating: 4.97,
   },
   {
@@ -89,7 +89,7 @@ const houses: HouseModel[] = [
       'https://a0.muscache.com/im/pictures/0573a97a-32be-429d-805c-768c39f76be6.jpg?im_w=1440',
       'https://a0.muscache.com/im/pictures/0b18e267-3109-4027-a60e-10816bf2fbc9.jpg?im_w=1440',
     ],
-    price: '135€',
+    price: 135,
     rating: 5,
   },
   {
@@ -104,7 +104,7 @@ const houses: HouseModel[] = [
       'https://a0.muscache.com/im/pictures/bdf48b9a-6112-4c6d-a874-1514a79d3a60.jpg?im_w=1440',
       'https://a0.muscache.com/im/pictures/miso/Hosting-43620298/original/2f3f0463-9ef7-4ee7-a1f7-898ac3325d5e.jpeg?im_w=1440',
     ],
-    price: '60€',
+    price: 60,
     rating: 4.98,
   },
   {
@@ -119,7 +119,7 @@ const houses: HouseModel[] = [
       'https://a0.muscache.com/im/pictures/miso/Hosting-44229733/original/4f172d56-b97e-4eab-ac26-23a2a3111c60.jpeg?im_w=1440',
       'https://a0.muscache.com/im/pictures/miso/Hosting-44229733/original/94042e24-8afa-45e9-8c87-7d9155244dfb.jpeg?im_w=1440',
     ],
-    price: '90€',
+    price: 90,
     rating: 5,
   },
   {
@@ -134,7 +134,7 @@ const houses: HouseModel[] = [
       'https://a0.muscache.com/im/pictures/3dee0a89-0336-42a0-ac91-03d3861143fa.jpg?im_w=1440',
       'https://a0.muscache.com/im/pictures/27b7bb4e-fda9-4e5f-840a-04ffb0922993.jpg?im_w=1440',
     ],
-    price: '464€',
+    price: 464,
     rating: 5,
   },
   {
@@ -149,7 +149,7 @@ const houses: HouseModel[] = [
       'https://a0.muscache.com/im/pictures/0abf4095-ef69-4afb-bef6-820e59d23990.jpg?im_w=1440',
       'https://a0.muscache.com/im/pictures/07b54251-f9b5-490e-8d0e-85afa65b161c.jpg?im_w=1440',
     ],
-    price: '144€',
+    price: 144,
     rating: 4.98,
   },
   {
@@ -164,7 +164,7 @@ const houses: HouseModel[] = [
       'https://a0.muscache.com/im/pictures/miso/Hosting-37805118/original/05cf0d6f-4608-48c2-8ae0-3fb767ef7380.jpeg?im_w=1440',
       'https://a0.muscache.com/im/pictures/miso/Hosting-37805118/original/a9274c1e-7221-4747-9d26-81a490ebed92.jpeg?im_w=1440',
     ],
-    price: '70€',
+    price: 70,
     rating: 4.95,
   },
   {
@@ -179,7 +179,7 @@ const houses: HouseModel[] = [
       'https://a0.muscache.com/im/pictures/1d593a62-5dc3-413b-b27d-45bd682b8efa.jpg?im_w=1440',
       'https://a0.muscache.com/im/pictures/6d77e529-40b5-4dce-bfee-8fcf984bb895.jpg?im_w=1440',
     ],
-    price: '180€',
+    price: 180,
     rating: 4.96,
   },
 ];

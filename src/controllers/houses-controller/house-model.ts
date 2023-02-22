@@ -6,7 +6,7 @@ type HouseModel = {
     city: string
   },
   images: string[],
-  price: string,
+  price: number,
   rating: number
 };
 
