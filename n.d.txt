@@ -1,5 +1,4 @@
 * Pamokos darbo atlikitmas pažingsniui[0.1]
-  * Sukurti savo įrašo validacijos schemą ir panaudoti ją tipo prielaidos funkcijoje
-  * Panaikinti tipo prielaidos funkciją ir vietoj jos naudoti try-catch bloką suformuojant klaaidos atsakymą
-  * aprašykite validacijos schemą ir tipus atskiruose failuose
-  * sukurti atbaujinimo ir ištrynimo funkcionalumą
+  * perkelti router'į, kap pagrindinį controller'io failą
+  * perpanaudoti validacijos schemas (pašalinti validacijos pasikartojimus)
+  * užmegzti jungtį su MySQL servriu, kurį esate susikūrę naudodami https://www.clever-cloud.com/( arbą kitą tiekėją )
