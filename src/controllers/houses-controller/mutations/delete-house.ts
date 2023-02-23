@@ -24,5 +24,5 @@ export const deleteHouse: RequestHandler<
 
   const [deletedHoouse] = houses.splice(foundHouseIndex, 1);
 
-  res.status(200).json(deletedHoouse);
+  res.status(204).json(deletedHoouse);
 };
