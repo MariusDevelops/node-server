@@ -1,10 +1,10 @@
 import * as yup from 'yup';
 import { PartialHouseData } from '../types';
-import imagesSchema from './images-schema';
-import locationSchema from './location-schema';
-import priceSchema from './price-schema';
-import ratingSchema from './rating-schema';
-import titleSchema from './title-schema';
+import imagesSchema from './property-schemas/images-schema';
+import locationSchema from './property-schemas/location-schema';
+import priceSchema from './property-schemas/price-schema';
+import ratingSchema from './property-schemas/rating-schema';
+import titleSchema from './property-schemas/title-schema';
 
 const partialHouseDataValidationSchema: yup.ObjectSchema<PartialHouseData> = yup.object({
   title: titleSchema,
