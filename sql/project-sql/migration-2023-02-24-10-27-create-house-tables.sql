@@ -1,4 +1,4 @@
-create table locations (
+create table bkuajbndnn4pf9fuvw2c.locations (
   id int4 unsigned primary key auto_increment,
   country varchar(256) not null,
   city varchar(256) not null,
@@ -6,7 +6,7 @@ create table locations (
   updatedAt timestamp default current_timestamp on update current_timestamp
 );
 
-create table houses (
+create table bkuajbndnn4pf9fuvw2c.houses (
   id int4 unsigned primary key auto_increment,
   title varchar(256) not null,
   locationId int4 unsigned not null unique,
@@ -17,7 +17,7 @@ create table houses (
   FOREIGN KEY (locationId) REFERENCES locations(id)
 );
 
-create table images (
+create table bkuajbndnn4pf9fuvw2c.images (
   id int4 unsigned primary key auto_increment,
   src varchar(512) not null,
   houseId int4 unsigned not null,
