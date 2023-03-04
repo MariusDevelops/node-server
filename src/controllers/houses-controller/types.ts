@@ -1,5 +1,7 @@
-export type HouseModel = {
-  id: string,
+import { RowDataPacket } from 'mysql2';
+
+export interface HouseModel extends RowDataPacket {
+  id: number,
   title: string,
   location: {
     country: string,
@@ -8,7 +10,7 @@ export type HouseModel = {
   images: string[],
   price: number,
   rating: number
-};
+}
 
 export type HouseData = Omit<HouseModel, 'id'>;
 
