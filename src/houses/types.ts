@@ -1,6 +1,6 @@
 import { RowDataPacket } from 'mysql2';
 
-type PrivateHouseModel = {
+type PrivateViewHouseModel = {
   id: number,
   title: string,
   location: {
@@ -12,8 +12,8 @@ type PrivateHouseModel = {
   rating: number
 };
 
-export type HouseModel = PrivateHouseModel & RowDataPacket;
+export type HouseViewModel = PrivateViewHouseModel & RowDataPacket;
 
-export type HouseData = Omit<PrivateHouseModel, 'id'>;
+export type HouseData = Omit<PrivateViewHouseModel, 'id'>;
 
 export type PartialHouseData = Partial<HouseData>;

@@ -17,7 +17,8 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    '@typescript-eslint/indent': [0],
-    'import/prefer-default-export': [0]
+    '@typescript-eslint/indent': 'off',
+    'import/prefer-default-export': 'off',
+    'max-classes-per-file': 'off'
   },
 };
