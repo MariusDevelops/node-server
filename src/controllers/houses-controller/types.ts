@@ -1,6 +1,6 @@
 import { RowDataPacket } from 'mysql2';
 
-export interface HouseModel extends RowDataPacket {
+type PrivateHouseModel = {
   id: number,
   title: string,
   location: {
@@ -10,8 +10,10 @@ export interface HouseModel extends RowDataPacket {
   images: string[],
   price: number,
   rating: number
-}
+};
 
-export type HouseData = Omit<HouseModel, 'id'>;
+export type HouseModel = PrivateHouseModel & RowDataPacket;
+
+export type HouseData = Omit<PrivateHouseModel, 'id'>;
 
 export type PartialHouseData = Partial<HouseData>;

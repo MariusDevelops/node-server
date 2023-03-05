@@ -1,4 +1,0 @@
-* Pamokos darbo atlikitmas pažingsniui[0.1]
-  * perkelti router'į, kap pagrindinį controller'io failą
-  * perpanaudoti validacijos schemas (pašalinti validacijos pasikartojimus)
-  * užmegzti jungtį su MySQL servriu, kurį esate susikūrę naudodami https://www.clever-cloud.com/( arbą kitą tiekėją )

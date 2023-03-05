@@ -1,7 +1,7 @@
 import express from 'express';
 import { getHouse } from './queries/get-house';
 import { getHouses } from './queries/get-houses';
-// import { createHouse } from './mutations/create-house';
+import { createHouse } from './mutations/create-house';
 // import { deleteHouse } from './mutations/delete-house';
 // import { updateHouse } from './mutations/update-house';
 
@@ -9,8 +9,8 @@ const housesRouter = express.Router();
 
 housesRouter.get('/', getHouses);
 housesRouter.get('/:id', getHouse);
+housesRouter.post('/', createHouse);
 
-// housesRouter.post('/', createHouse);
 // housesRouter.patch('/:id', updateHouse);
 // housesRouter.delete('/:id', deleteHouse);
 

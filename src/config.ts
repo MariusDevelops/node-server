@@ -29,12 +29,14 @@ const config = {
     domain: SERVER_DOMAIN,
     port: SERVER_PORT,
   },
+
   db: {
     host: DB_HOST,
     database: DB_NAME,
     user: DB_USER,
     password: DB_PASSWORD,
     port: Number(DB_PORT),
+    multipleStatements: true,
   },
 };
 
