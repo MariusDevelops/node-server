@@ -1,26 +1,19 @@
 import { RequestHandler } from 'express';
 import { ValidationError } from 'yup';
+import HouseService from '../../../services/houses-service';
 import { HouseModel, PartialHouseData } from '../types';
-import houses from '../houses-data';
 import partialHouseDataValidationSchema from '../validation-schemas/partial-house-data-validation-schema';
 
 export const updateHouse: RequestHandler<
   { id: string | undefined },
-  HouseModel | ResponseError,
+  HouseModel | ErrorResponse,
   PartialHouseData,
   {}
-> = (req, res) => {
+> = async (req, res) => {
   const { id } = req.params;
 
   if (id === undefined) {
     res.status(400).json({ error: 'server setup error' });
-    return;
-  }
-
-  const foundHouseIndex = houses.findIndex((house) => house.id === id);
-
-  if (foundHouseIndex === -1) {
-    res.status(400).json({ error: `house was not found with id '${id}'` });
     return;
   }
 
@@ -29,15 +22,8 @@ export const updateHouse: RequestHandler<
       req.body,
       { abortEarly: false },
     );
-    const foundHouse = houses[foundHouseIndex];
 
-    const updatedHouse = {
-      ...foundHouse,
-      ...partialHouseData,
-    };
-
-    houses.splice(foundHouseIndex, 1, updatedHouse);
-
+    const updatedHouse = await HouseService.updateHouse(id, partialHouseData);
     res.status(200).json(updatedHouse);
   } catch (err) {
     if (err instanceof ValidationError) {

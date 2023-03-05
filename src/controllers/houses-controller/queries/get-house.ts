@@ -1,11 +1,10 @@
 import { RequestHandler } from 'express';
-import mysql from 'mysql2/promise';
+import HouseService from '../../../services/houses-service';
 import { HouseModel } from '../types';
-import config from '../../../config';
 
 export const getHouse: RequestHandler<
   { id: string | undefined },
-  HouseModel | ResponseError,
+  HouseModel | ErrorResponse,
   {},
   {}
 > = async (req, res) => {
@@ -15,26 +14,12 @@ export const getHouse: RequestHandler<
     res.status(400).json({ error: 'server setup error' });
     return;
   }
-  const mySqlConnection = await mysql.createConnection(config.db);
-  const preparedSql = `
-    SELECT h.id, h.title, JSON_OBJECT('country', l.country, 'city', l.city) as location, h.price, h.rating, json_arrayagg(i.src) as images
-    FROM images as i
-    LEFT JOIN houses as h
-    ON i.houseId = h.id
-    LEFT JOIN  locations as l
-    ON h.locationId = l.id
-    WHERE h.id = ?
-    GROUP BY h.id;
-  `;
-  const preparedSqlData = [id];
 
-  const [houses] = await mySqlConnection.query<HouseModel[]>(preparedSql, preparedSqlData);
-  await mySqlConnection.end();
-
-  if (houses.length === 0) {
-    res.status(404).json({ error: `house with id <${id}> was not found` });
-    return;
+  try {
+    const house = await HouseService.getHouse(id);
+    res.status(200).json(house);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'request error';
+    res.status(404).json({ error: message });
   }
-
-  res.status(200).json(houses[0]);
 };

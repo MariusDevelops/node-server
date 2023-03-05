@@ -1,13 +1,13 @@
 import { RequestHandler } from 'express';
+import HouseService from '../../../services/houses-service';
 import { HouseModel } from '../types';
-import houses from '../houses-data';
 
 export const deleteHouse: RequestHandler<
   { id: string | undefined },
-  HouseModel | ResponseError,
+  HouseModel | ErrorResponse,
   {},
   {}
-> = (req, res) => {
+> = async (req, res) => {
   const { id } = req.params;
 
   if (id === undefined) {
@@ -15,14 +15,16 @@ export const deleteHouse: RequestHandler<
     return;
   }
 
-  const foundHouseIndex = houses.findIndex((house) => house.id === id);
+  try {
+    const house = await HouseService.getHouse(id);
+    await HouseService.deleteHouse(id);
 
-  if (foundHouseIndex === -1) {
-    res.status(400).json({ error: `house was not found with id '${id}'` });
-    return;
+    res.status(200).json(house);
+  } catch (err) {
+    if (err instanceof Error) {
+      res.status(400).json({ error: err.message });
+    } else {
+      res.status(400).json({ error: 'Request error' });
+    }
   }
-
-  const [deletedHoouse] = houses.splice(foundHouseIndex, 1);
-
-  res.status(204).json(deletedHoouse);
 };
