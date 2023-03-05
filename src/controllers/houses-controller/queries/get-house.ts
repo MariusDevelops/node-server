@@ -16,16 +16,19 @@ export const getHouse: RequestHandler<
     return;
   }
   const mySqlConnection = await mysql.createConnection(config.db);
-  const [houses] = await mySqlConnection.query<HouseModel[]>(`
-      SELECT h.id, h.title, JSON_OBJECT('country', l.country, 'city', l.city) as location, h.price, h.rating, json_arrayagg(i.src) as images
-      FROM images as i
-      LEFT JOIN houses as h
-      ON i.houseId = h.id
-      LEFT JOIN  locations as l
-      ON h.locationId = l.id
-      WHERE h.id = ${id}
-      GROUP BY h.id;
-  `);
+  const preparedSql = `
+    SELECT h.id, h.title, JSON_OBJECT('country', l.country, 'city', l.city) as location, h.price, h.rating, json_arrayagg(i.src) as images
+    FROM images as i
+    LEFT JOIN houses as h
+    ON i.houseId = h.id
+    LEFT JOIN  locations as l
+    ON h.locationId = l.id
+    WHERE h.id = ?
+    GROUP BY h.id;
+  `;
+  const preparedSqlData = [id];
+
+  const [houses] = await mySqlConnection.query<HouseModel[]>(preparedSql, preparedSqlData);
   await mySqlConnection.end();
 
   if (houses.length === 0) {
