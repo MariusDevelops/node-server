@@ -1,44 +1,45 @@
 import { RequestHandler } from 'express';
 import ErrorService from 'services/error-service';
-import { CredentialPartial, AuthSuccessResponse } from './types';
+import jwt from 'jsonwebtoken';
+import config from 'config';
+import bcrypt from 'bcrypt';
+import { CredentialsPartial, AuthSuccessResponse, UserViewModel } from './types';
 import credentialsValidationSchema from './validation-schemas/credentials-validation-schema';
+import UserModel from './model';
 
 export const login: RequestHandler<
   {},
   AuthSuccessResponse | ErrorResponse,
-  CredentialPartial,
+  CredentialsPartial,
   {}
 
-> = (req, res) => {
+> = async (req, res) => {
   try {
     const credentials = credentialsValidationSchema.validateSync(req.body, { abortEarly: false });
+    const user = await UserModel.getUser(credentials.email);
+    const validPassword = await bcrypt.compare(credentials.password, user.password);
 
-    res.status(200).json(credentials as unknown as AuthSuccessResponse);
+    if (!validPassword) throw new Error('Incorrect password');
+    const token = jwt.sign({ email: user.email, role: user.role }, config.secret.jwtTokenKey);
+
+    const userViewModel: UserViewModel = {
+      id: user.id,
+      email: user.email,
+      name: user.name,
+      surname: user.surname,
+      role: user.role,
+    };
+
+    res.status(200).json({
+      token,
+      user: userViewModel,
+    });
   } catch (err) {
     const [status, errorResponse] = ErrorService.handleError(err);
     res.status(status).json(errorResponse);
   }
-  /*
-    // 1. Sukurti validacijos schemą, kuri patikrintų ar <credentials> yra teisingi
-    //   * ne - grąžinti klaidą
-    2. Sukurti duomenų bazėje migraciją, kuri sukuria vartotojų lentelę <users>
-      * id
-      * email
-      * password
-      * name
-      * surname
-      * role: 'ADMIN' | 'USER'
-      * createdAt
-      * updatedAt
-    3. Sukurti duomenų bazėje migraciją, kuri įrašo pirmajį admin vartotoją
-      * email - admin@gmail.com
-      * password - Vilnius123!
-    4. Tikrinti ar <credentials> atitikmuo yra duomenų bazėje
-      * taip - suformuoti dirbtinius user duomenis
-      * ne - grąžinti klaidą
-    5. Sukurti tokeną. - https://www.npmjs.com/package/jsonwebtoken
-    6. Suformuoti užklausos atsakymą.
-    7. Įgalinti šifruoto password saugojimą duomenų bazėje.
-      Ir patobulinti tikrinimą password sutapimą - https://www.npmjs.com/package/bcrypt?activeTab=readme
-  */
 };
+
+/*
+
+*/
