@@ -39,7 +39,3 @@ export const login: RequestHandler<
     res.status(status).json(errorResponse);
   }
 };
-
-/*
-
-*/
