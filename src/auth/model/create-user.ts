@@ -22,6 +22,7 @@ export const createUser = async ({
   const preparedSql = `
     INSERT INTO users (email, password, name, surname) VALUES 
     (?, ?, ?, ?);
+
     ${SQL.SELECT}
     WHERE users.id = LAST_INSERT_ID();
   `;

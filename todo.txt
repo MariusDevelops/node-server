@@ -1,0 +1,5 @@
+1. 
+  Visų užklausų tipus paversti į RequestHandler ir naudojant JavaScript'ą tikrinti visus užklausos duomenis (validacijos schemomis):
+    * parametrus
+    * body
+    * serachParametrus

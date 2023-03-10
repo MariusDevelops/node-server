@@ -1,17 +1,17 @@
 import { RequestHandler } from 'express';
 import ErrorService from 'services/error-service';
 import HousesModel from '../model';
-import { HouseViewModel, HouseData } from '../types';
+import { HouseViewModel, PartialHouseData } from '../types';
 import houseDataValidationSchema from '../validation-schemas/house-data-validation-schema';
 
 export const createHouse: RequestHandler<
   {},
   HouseViewModel | ErrorResponse,
-  HouseData,
+  PartialHouseData,
   {}
 > = async (req, res) => {
   try {
-    const houseData: HouseData = houseDataValidationSchema
+    const houseData = houseDataValidationSchema
       .validateSync(req.body, { abortEarly: false });
 
     const createdHouse = await HousesModel.createHouse(houseData);
