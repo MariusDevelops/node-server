@@ -1,5 +1,5 @@
 const SELECT = `
-  SELECT id, name, surname, email, password, role
+  SELECT id, name, surname, email, password, role, mobile
   FROM users
 `;
 
