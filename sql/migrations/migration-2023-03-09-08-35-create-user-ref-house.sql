@@ -26,3 +26,5 @@ modify ownerId int4 unsigned not null;
 ALTER TABLE houses DROP FOREIGN KEY houses_ibfk_1;
 DROP INDEX locationId ON houses;
 ALTER TABLE houses ADD FOREIGN KEY (locationId) references locations(id);
+
+

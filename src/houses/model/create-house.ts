@@ -18,8 +18,8 @@ export const createHouse = async (houseData: HouseData): Promise<HouseViewModel>
     INSERT INTO locations (country, city) VALUES 
     (?, ?);
     
-    INSERT INTO houses (title, price, rating, locationId) VALUES
-    (?, ?, ?, LAST_INSERT_ID());
+    INSERT INTO houses (title, price, rating, ownerId, locationId) VALUES
+    (?, ?, ?, ?, LAST_INSERT_ID());
 
     SET @houseId = LAST_INSERT_ID();
     
@@ -36,6 +36,7 @@ export const createHouse = async (houseData: HouseData): Promise<HouseViewModel>
     houseData.title,
     houseData.price,
     houseData.rating,
+    houseData.ownerId,
     ...houseData.images,
   ];
 

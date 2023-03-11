@@ -9,11 +9,22 @@ type PrivateViewHouseModel = {
   },
   images: string[],
   price: number,
-  rating: number
+  rating: number,
+  owner: {
+    id: number,
+    name: string,
+    surname: string,
+    email: string,
+    mobile: string,
+  }
 };
 
 export type HouseViewModel = PrivateViewHouseModel & RowDataPacket;
 
-export type HouseData = Omit<PrivateViewHouseModel, 'id'>;
+export type HouseData = Omit<PrivateViewHouseModel, 'id' | 'owner'> & {
+  ownerId: number,
+};
 
-export type PartialHouseData = Partial<HouseData>;
+export type HouseBody = Omit<HouseData, 'ownerId'>;
+
+export type PartialHouseBody = Partial<HouseBody>;

@@ -1,12 +1,12 @@
 import mysql from 'mysql2/promise';
 import config from 'config';
 import { colonObjectQueryFormat } from 'services/my-sql';
-import { HouseViewModel, PartialHouseData } from '../types';
+import { HouseViewModel, PartialHouseBody } from '../types';
 import SQL from './sql';
 
 type PrepareSqlResult = [string, Record<string, string>];
 
-type PrepareSql = (houseData: PartialHouseData) => PrepareSqlResult;
+type PrepareSql = (houseData: PartialHouseBody) => PrepareSqlResult;
 
 const prepareImagesSql: PrepareSql = (houseData) => {
   const bindingsOrNull = houseData.images?.reduce((prevBindings, img, i) => ({
@@ -66,7 +66,7 @@ const prepareHouseSql: PrepareSql = (houseData) => {
 
 export const updateHouse = async (
   id: string,
-  houseData: PartialHouseData,
+  houseData: PartialHouseBody,
 ): Promise<HouseViewModel> => {
   const mySqlConnection = await mysql.createConnection(config.db);
   mySqlConnection.config.queryFormat = colonObjectQueryFormat;

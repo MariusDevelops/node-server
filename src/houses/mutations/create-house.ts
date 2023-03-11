@@ -1,20 +1,24 @@
 import { RequestHandler } from 'express';
-import ErrorService from 'services/error-service';
+import UserModel from 'models/user-model';
+import ErrorService, { ServerSetupError } from 'services/error-service';
 import HousesModel from '../model';
-import { HouseViewModel, PartialHouseData } from '../types';
+import { HouseViewModel, PartialHouseBody } from '../types';
 import houseDataValidationSchema from '../validation-schemas/house-data-validation-schema';
 
 export const createHouse: RequestHandler<
   {},
   HouseViewModel | ErrorResponse,
-  PartialHouseData,
+  PartialHouseBody,
   {}
 > = async (req, res) => {
   try {
     const houseData = houseDataValidationSchema
       .validateSync(req.body, { abortEarly: false });
 
-    const createdHouse = await HousesModel.createHouse(houseData);
+    if (req.authData === undefined) throw new ServerSetupError();
+    const user = await UserModel.getUserByEmail(req.authData.email);
+
+    const createdHouse = await HousesModel.createHouse({ ...houseData, ownerId: user.id });
 
     res.status(201).json(createdHouse);
   } catch (err) {
