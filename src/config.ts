@@ -12,6 +12,7 @@ const {
   DB_PORT,
   JWT_TOKEN_KEY,
   BCRYPT_ROUNDS,
+  JWT_TOKEN_EXPIRATION,
 } = process.env;
 
 if (!SERVER_PORT
@@ -24,6 +25,7 @@ if (!SERVER_PORT
   || !DB_PORT
 
   || !JWT_TOKEN_KEY
+  || !JWT_TOKEN_EXPIRATION
 
   || !BCRYPT_ROUNDS
 ) {
@@ -45,9 +47,13 @@ const config = {
     multipleStatements: true,
   },
 
-  secret: {
-    jwtTokenKey: JWT_TOKEN_KEY,
-    bcryptRounds: Number(BCRYPT_ROUNDS),
+  jwtToken: {
+    secret: JWT_TOKEN_KEY,
+    expiresIn: JWT_TOKEN_EXPIRATION,
+  },
+
+  passwordEncryption: {
+    secret: Number(BCRYPT_ROUNDS),
   },
 };
 
