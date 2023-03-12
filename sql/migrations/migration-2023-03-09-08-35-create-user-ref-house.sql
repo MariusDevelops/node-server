@@ -9,22 +9,22 @@ where mobile is null;
 alter table users modify mobile varchar(64) not null;
 
 insert into users (email, password, name, surname, mobile) values
-('temp@gmail.com', '$2b$05$XpAbe6hvlL9ObmADeO1Dd.089uztgQvUEy4kJMqobxJLnp61.9pPK', 'Temp', 'Temp', '+yyy xxx xxxxx');
+('temp@gmail.com', '$2a$05$JmjRa1JS3Dei4MIJ8g1d0eEnXgIQQLKvGMcK.bBCP46L4CGe/K282', 'Temp', 'Temp', '+yyy xxx xxxxx');
 
 SET @temp_user_id = LAST_INSERT_ID();
 
-alter table houses 
+alter table products 
 add ownerId int4 unsigned,
 add foreign key (ownerId) references users(id);
 
-update houses
+update products
 set ownerId = @temp_user_id;
 
-alter table houses 
+alter table products 
 modify ownerId int4 unsigned not null;
 
-ALTER TABLE houses DROP FOREIGN KEY houses_ibfk_1;
-DROP INDEX locationId ON houses;
-ALTER TABLE houses ADD FOREIGN KEY (locationId) references locations(id);
+ALTER TABLE products DROP FOREIGN KEY products_ibfk_1;
+DROP INDEX detailsId ON products;
+ALTER TABLE products ADD FOREIGN KEY (detailsId) references details(id);
 
 
