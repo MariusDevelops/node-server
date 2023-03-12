@@ -24,7 +24,7 @@ alter table products
 modify ownerId int4 unsigned not null;
 
 ALTER TABLE products DROP FOREIGN KEY products_ibfk_1;
-DROP INDEX detailsId ON products;
-ALTER TABLE products ADD FOREIGN KEY (detailsId) references details(id);
+DROP INDEX detailId ON products;
+ALTER TABLE products ADD FOREIGN KEY (detailId) references details(id);
 
 

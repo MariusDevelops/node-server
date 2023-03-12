@@ -1,18 +1,18 @@
 import mysql from 'mysql2/promise';
 import config from 'config';
-import { HouseViewModel } from '../types';
+import { ProductViewModel } from '../types';
 import SQL from './sql';
 
-export const getHouses = async (): Promise<HouseViewModel[]> => {
+export const getProducts = async (): Promise<ProductViewModel[]> => {
   const mySqlConnection = await mysql.createConnection(config.db);
 
   const sql = `
     ${SQL.SELECT}
     ${SQL.GROUP}
   `;
-  const [houses] = await mySqlConnection.query<HouseViewModel[]>(sql);
+  const [products] = await mySqlConnection.query<ProductViewModel[]>(sql);
 
   mySqlConnection.end();
 
-  return houses;
+  return products;
 };

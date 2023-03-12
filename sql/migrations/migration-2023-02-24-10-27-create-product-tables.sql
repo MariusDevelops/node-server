@@ -9,12 +9,12 @@ create table details (
 create table products (
   id int4 unsigned primary key auto_increment,
   title varchar(256) not null,
-  detailsId int4 unsigned not null unique,
+  detailId int4 unsigned not null unique,
   price float8 not null,
   rating float4 not null,
   createdAt timestamp default current_timestamp,
   updatedAt timestamp default current_timestamp on update current_timestamp,
-  FOREIGN KEY (locationId) REFERENCES locations(id)
+  FOREIGN KEY (detailId) REFERENCES details(id)
 );
 
 create table images (
@@ -23,5 +23,5 @@ create table images (
   productId int4 unsigned not null,
   createdAt timestamp default current_timestamp,
   updatedAt timestamp default current_timestamp on update current_timestamp,
-  FOREIGN KEY (houseId) REFERENCES houses(id)
+  FOREIGN KEY (productId) REFERENCES products(id)
 );

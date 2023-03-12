@@ -12,7 +12,7 @@ INSERT INTO details (material, sizes) VALUES
 ('Chiffon', 'L, XL'), 
 ('Polyester', 'S, M, L');
 
-INSERT INTO products (title, price, rating, detailsId) VALUES
+INSERT INTO products (title, price, rating, detailId) VALUES
 ( 'Crinkled Chiffon Shirt',32,4.79, 1),
 ( 'Oversized Fit Patterned Resort Shirt',37,4.97, 2),
 ( 'Oversized Rib-knit Sweater',33,4.62, 3),

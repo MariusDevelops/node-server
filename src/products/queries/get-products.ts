@@ -1,18 +1,18 @@
 import { RequestHandler } from 'express';
 import ErrorService from 'services/error-service';
-import HousesModel from '../model';
+import ProductsModel from '../model';
 
-import { HouseViewModel } from '../types';
+import { ProductViewModel } from '../types';
 
-export const getHouses: RequestHandler<
+export const getProducts: RequestHandler<
   {},
-  HouseViewModel[] | ErrorResponse,
+  ProductViewModel[] | ErrorResponse,
   {},
   {}
 > = async (req, res) => {
   try {
-    const houses = await HousesModel.getHouses();
-    res.status(200).json(houses);
+    const products = await ProductsModel.getProducts();
+    res.status(200).json(products);
   } catch (error) {
     const [status, errorResponse] = ErrorService.handleError(error);
     res.status(status).json(errorResponse);

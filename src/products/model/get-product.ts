@@ -1,10 +1,10 @@
 import mysql from 'mysql2/promise';
 import config from 'config';
 import { NotFoundError } from 'services/error-service';
-import { HouseViewModel } from '../types';
+import { ProductViewModel } from '../types';
 import SQL from './sql';
 
-export const getHouse = async (id: string): Promise<HouseViewModel> => {
+export const getProduct = async (id: string): Promise<ProductViewModel> => {
   const mySqlConnection = await mysql.createConnection(config.db);
 
   const preparedSql = `
@@ -14,11 +14,11 @@ export const getHouse = async (id: string): Promise<HouseViewModel> => {
   `;
 
   const preparedSqlData = [id];
-  const [houses] = await mySqlConnection.query<HouseViewModel[]>(preparedSql, preparedSqlData);
+  const [products] = await mySqlConnection.query<ProductViewModel[]>(preparedSql, preparedSqlData);
 
   mySqlConnection.end();
 
-  if (houses.length === 0) throw new NotFoundError(`house with id <${id}> was not found`);
+  if (products.length === 0) throw new NotFoundError(`product with id <${id}> was not found`);
 
-  return houses[0];
+  return products[0];
 };

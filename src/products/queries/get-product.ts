@@ -1,11 +1,11 @@
 import { RequestHandler } from 'express';
 import ErrorService, { ServerSetupError } from 'services/error-service';
-import HousesModel from '../model';
-import { HouseViewModel } from '../types';
+import ProductsModel from '../model';
+import { ProductViewModel } from '../types';
 
-export const getHouse: RequestHandler<
+export const getProduct: RequestHandler<
   { id: string | undefined },
-  HouseViewModel | ErrorResponse,
+  ProductViewModel | ErrorResponse,
   {},
   {}
 > = async (req, res) => {
@@ -13,9 +13,9 @@ export const getHouse: RequestHandler<
 
   try {
     if (id === undefined) throw new ServerSetupError();
-    const house = await HousesModel.getHouse(id);
+    const product = await ProductsModel.getProduct(id);
 
-    res.status(200).json(house);
+    res.status(200).json(product);
   } catch (error) {
     const [status, errorResponse] = ErrorService.handleError(error);
     res.status(status).json(errorResponse);

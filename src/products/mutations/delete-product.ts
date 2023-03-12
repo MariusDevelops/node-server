@@ -1,12 +1,12 @@
 import { RequestHandler } from 'express';
 import UserModel from 'models/user-model';
 import ErrorService, { ForbiddenError, ServerSetupError } from 'services/error-service';
-import HousesModel from '../model';
-import { HouseViewModel } from '../types';
+import ProductsModel from '../model';
+import { ProductViewModel } from '../types';
 
-export const deleteHouse: RequestHandler<
+export const deleteProduct: RequestHandler<
   { id: string | undefined },
-  HouseViewModel | ErrorResponse,
+  ProductViewModel | ErrorResponse,
   {},
   {}
 > = async (req, res) => {
@@ -17,11 +17,11 @@ export const deleteHouse: RequestHandler<
     if (req.authData === undefined) throw new ServerSetupError();
 
     const user = await UserModel.getUserByEmail(req.authData.email);
-    const house = await HousesModel.getHouse(id);
-    if (user.role !== 'ADMIN' && user.id !== house.owner.id) throw new ForbiddenError();
+    const product = await ProductsModel.getProduct(id);
+    if (user.role !== 'ADMIN' && user.id !== product.owner.id) throw new ForbiddenError();
 
-    await HousesModel.deleteHouse(id);
-    res.status(200).json(house);
+    await ProductsModel.deleteProduct(id);
+    res.status(200).json(product);
   } catch (err) {
     const [status, errorResponse] = ErrorService.handleError(err);
     res.status(status).json(errorResponse);

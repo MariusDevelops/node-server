@@ -2,7 +2,7 @@ const SELECT = `
 SELECT 
   h.id, 
   h.title, 
-  JSON_OBJECT('country', l.country, 'city', l.city) as location,
+  JSON_OBJECT('material', l.material, 'sizes', l.sizes) as detail,
   h.price, 
   h.rating, 
   IF(COUNT(i.id) = 0, JSON_ARRAY(), JSON_ARRAYAGG(i.src)) as images,
@@ -13,11 +13,11 @@ SELECT
     'email', u.email,
     'mobile', u.mobile
   ) as owner
-FROM houses as h
+FROM products as h
 LEFT JOIN images as i
-ON i.houseId = h.id
-LEFT JOIN  locations as l
-ON h.locationId = l.id
+ON i.productId = h.id
+LEFT JOIN  details as l
+ON h.detailId = l.id
 LEFT JOIN  users as u
 ON u.id = h.ownerId
 `;
